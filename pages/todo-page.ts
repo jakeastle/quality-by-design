@@ -30,6 +30,7 @@ export class TodoPage {
   }
 
   async expectItemsLeft(count: number) {
-    await expect(this.page.getByText(`${count} item left`)).toBeVisible();
-  }
+  const text = count === 1 ? 'item' : 'items';
+  await expect(this.page.getByText(`${count} ${text} left`)).toBeVisible();
+}
 }
